@@ -1,9 +1,5 @@
 class HomeController < ApplicationController
     def index
-        
-    end
-
-    def faq
-        
+        @properties = Property.all
     end
 end
