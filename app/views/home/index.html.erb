@@ -2,7 +2,11 @@
 <h3>Boas vindas ao sistema de locação de apartamentos</h3>
 
 <% @properties.each do |p| %>
-    <%= p.title %>
+    <%= link_to p.title, property_path(p) %>
     <%= p.description %>
      Quartos: <%= p.rooms %>
+<% end %>
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
 <% end %>

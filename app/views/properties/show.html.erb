@@ -1,0 +1,8 @@
+<h1><%= @property.title%></h1>
+<p><%= @property.description %></p>
+<p>Quartos: <%= @property.rooms%></p>
+<p>Banheiros: <%= @property.bathrooms%></p>
+<p>Aceita Pets: <%= if @property.pets; 'Sim' else 'Não' end %></p>
+<p>Estacionamento: <%= if @property.parking_slot; 'Sim' else 'Não' end %></p>
+<p>Diária: R$ <%= @property.daily_rate %></p>
+<p><%= link_to 'Voltar', root_path %></p>
