@@ -36,6 +36,8 @@ describe 'Visitor visit homepage' do
                         description: 'Excelente casa, recém reformada com 2 vagas de garagem',
                         rooms: 3, parking_slot: true, bathrooms: 2, pets: true, daily_rate: 500
                         })
+        
+        
         visit root_path
         click_on 'Casa com quintal em Copacabana'
 
@@ -45,8 +47,23 @@ describe 'Visitor visit homepage' do
         expect(page).to have_text("Banheiros: 2")
         expect(page).to have_text("Aceita Pets: Sim")
         expect(page).to have_text("Estacionamento: Sim")
-        expect(page).to have_text("Diária: R$ 500")
+        expect(page).to have_text("Diária: R$ 500,00")
     
+    end
+
+    it 'and view properties details and return to home' do
+    
+        Property.create({title: 'Casa com quintal em Copacabana',
+        description: 'Excelente casa, recém reformada com 2 vagas de garagem',
+        rooms: 3, parking_slot: true, bathrooms: 2, pets: true, daily_rate: 500
+        })
+
+        visit root_path
+        click_on 'Casa com quintal em Copacabana'
+        click_on 'Voltar'
+        
+        expect(current_path).to eq root_path
+
     end
 
 end
