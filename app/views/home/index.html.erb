@@ -1,14 +1,18 @@
-<h1>Flats</h1>
-<h3>Boas vindas ao sistema de locação de apartamentos</h3>
+<h1 style="text-align: center; margin-top: 50px">Flats</h1>
+<h3 style="text-align: center; margin-bottom: 50px">Boas vindas ao sistema de locação de apartamentos</h3>
+
+<nav>
+<h3 style="text-align: right; margin-right: 10%"><%= link_to 'Cadastrar imóvel', new_property_path %></h3>
+</nav>
 
 <% @properties.each do |p| %>
-    <%= link_to p.title, property_path(p) %>
-    <%= p.description %>
-     Quartos: <%= p.rooms %>
+    <div style="padding-top: 25px; padding-bottom: 25px; padding-left: 5%; border-style: solid">
+    <h2><%= link_to p.title, property_path(p) %></h2>
+    <p><%= p.description %></p>
+    <p>Quartos: <%= p.rooms %></p>
+    </div>
 <% end %>
 
 <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
 <% end %>
-
-<%= link_to 'Cadastrar imóvel', new_property_path %>

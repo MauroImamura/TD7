@@ -2,34 +2,35 @@
 
 <%= form_with(model: @property) do |f| %>
     <div> 
-        <%= f.label :title, 'Título'%> 
+        <h3><%= f.label :title, 'Título'%> </h3>
         <%= f.text_field :title%>
     </div>
     <div> 
-        <%= f.label :description, 'Descrição'%> 
+        <h3><%= f.label :description, 'Descrição'%></h3> 
         <%= f.text_field :description%>
     </div>
     <div> 
-        <%= f.label :rooms, 'Quartos'%> 
+        <h3><%= f.label :rooms, 'Quartos'%> </h3>
         <%= f.number_field :rooms%>
     </div>
     <div> 
-        <%= f.label :bathrooms, 'Banheiros'%> 
+        <h3><%= f.label :bathrooms, 'Banheiros'%> </h3>
         <%= f.number_field :bathrooms%>
     </div>
     <div> 
-        <%= f.label :daily_rate, 'Diária'%> 
+        <h3><%= f.label :daily_rate, 'Diária'%> </h3>
         <%= f.text_field :daily_rate%>
     </div>
     <div> 
-        <%= f.label :pets, 'Aceita Pets'%> 
+        <h3><%= f.label :pets, 'Aceita Pets'%> </h3>
         <%= f.check_box :pets%>
     </div>
     <div> 
-        <%= f.label :parking_slot, 'Vaga de estacionamento'%> 
+        <h3><%= f.label :parking_slot, 'Vaga de estacionamento'%> </h3>
         <%= f.check_box :parking_slot%>
     </div>
-    <div> 
+    <div style="margin-top: 25px; margin-bottom: 25px"> 
         <%= f.submit 'Enviar' %> 
     </div>
 <% end %>
+<div> <%= link_to 'Cancelar', root_path %> </div>

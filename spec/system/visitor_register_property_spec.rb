@@ -22,4 +22,13 @@ describe 'Visitor register property' do
         expect(page).to have_content('Estacionamento: Sim')
         expect(page).to have_content('Diária: R$ 200,00')
     end
+
+    it 'but decide to return to home instead' do
+        
+        visit root_path
+        click_on 'Cadastrar imóvel'
+        click_on 'Cancelar'
+
+        expect(current_path).to eq root_path
+    end
 end
