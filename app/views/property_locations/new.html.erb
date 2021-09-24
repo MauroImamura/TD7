@@ -1,0 +1,11 @@
+<h1> Cadastro de região </h1>
+
+<%= form_with(model: @property_location) do |f|%>
+    <%= f.label :title, 'Nome'%>
+    <%= f.text_field :title %>
+    <%= f.submit 'Enviar' %>
+<% end %>
+
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %>
