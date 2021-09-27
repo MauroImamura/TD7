@@ -6,6 +6,6 @@
     <%= f.submit 'Enviar' %>
 <% end %>
 
-<% if flash[:notice] %>
-    <%= flash[:notice] %>
+<% if @property_location.errors.any? %>
+    <%= @property_location.errors.full_messages %>
 <% end %>

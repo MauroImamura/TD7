@@ -4,20 +4,11 @@ class PropertyLocationsController < ApplicationController
     end
 
     def create
-        @all_property_locations = []
-        PropertyLocation.all.each {|l| @all_property_locations << l[:title]}
-
-        if @all_property_locations.include?(params[:property_location][:title])
-            redirect_to new_property_location_path
-            flash[:notice] = 'Não foi possível cadastrar: este nome já foi usado'
+        @property_location = PropertyLocation.create(params.require(:property_location).permit(:title))
+        if @property_location.save
+            redirect_to @property_location
         else
-            prop_location = PropertyLocation.create(params.require(:property_location).permit(:title))
-            if prop_location.save
-                redirect_to prop_location
-            else
-                redirect_to new_property_location_path
-                flash[:notice] = 'Não foi possível cadastrar: nome inválido'
-            end
+            render :new
         end
     end
 
