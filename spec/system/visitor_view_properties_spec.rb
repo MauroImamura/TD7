@@ -6,12 +6,12 @@ describe 'Visitor visit homepage' do
         #Arrannge
         Property.create({title: 'Casa com quintal em Copacabana',
                         description: 'Excelente casa, recém reformada com 2 vagas de garagem',
-                        rooms: 3, parking_slot: true
+                        rooms: 3, bathrooms: 3, daily_rate: 100, parking_slot: true
                         })
 
         Property.create({title: 'Cobertura em Manaus',
                         description: 'Cobertura de 300m2, churrasqueira e sauna privativa',
-                        rooms: 5, parking_slot: false
+                        rooms: 5, bathrooms: 2, daily_rate: 200, parking_slot: false
                         })
         #Act
         visit root_path

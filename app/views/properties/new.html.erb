@@ -33,4 +33,9 @@
         <%= f.submit 'Enviar' %> 
     </div>
 <% end %>
+
+<% if flash.now[:notice] %>
+    <div><p style="color: #fa0303"> <%= flash.now[:notice] %></p></div>
+<% end %>
+
 <div> <%= link_to 'Cancelar', root_path %> </div>

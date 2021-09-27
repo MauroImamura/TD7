@@ -8,7 +8,12 @@ class PropertiesController < ApplicationController
     end
 
     def create
-        prop = Property.create(params.require(:property).permit(:title, :description, :rooms, :bathrooms, :pets, :parking_slot, :daily_rate))
-        redirect_to prop
+        @property = Property.create(params.require(:property).permit(:title, :description, :rooms, :bathrooms, :pets, :parking_slot, :daily_rate))
+        if @property.save
+            redirect_to @property
+        else
+            flash.now[:notice] = 'Não foi possível cadastrar'
+            render :new
+        end
     end
 end
