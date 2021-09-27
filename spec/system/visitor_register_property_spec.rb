@@ -27,7 +27,7 @@ describe 'Visitor register property' do
         
         visit root_path
         click_on 'Cadastrar imóvel'
-        click_on 'Cancelar'
+        click_on 'Voltar'
 
         expect(current_path).to eq root_path
     end

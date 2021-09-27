@@ -32,4 +32,13 @@ describe 'Visitor register new region' do
 
         expect(page).to have_content('Não foi possível cadastrar: este nome já foi usado')
     end
+
+    it 'but decide to return to home instead' do
+        
+        visit root_path
+        click_on 'Cadastrar região'
+        click_on 'Voltar'
+
+        expect(current_path).to eq root_path
+    end
 end
