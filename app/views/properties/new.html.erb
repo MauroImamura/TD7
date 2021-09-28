@@ -5,6 +5,10 @@
         <h3><%= f.label :title, 'Título'%> </h3>
         <%= f.text_field :title%>
     </div>
+    <div>
+        <%= f.label :property_type_id, 'Tipo' %>
+        <%= f.collection_select :property_type_id, PropertyType.all, :id, :title, prompt: 'Escolha um tipo' %>
+    </div>
     <div> 
         <h3><%= f.label :description, 'Descrição'%></h3> 
         <%= f.text_field :description%>
@@ -36,6 +40,14 @@
 
 <% if flash.now[:notice] %>
     <div><p style="color: #fa0303"> <%= flash.now[:notice] %></p></div>
+<% end %>
+
+<% if @property.errors.any? %>
+  <ul>
+    <% @property.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
 <% end %>
 
 <div> <%= link_to 'Voltar', root_path %> </div>

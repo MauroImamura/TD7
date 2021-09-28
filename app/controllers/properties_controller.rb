@@ -8,7 +8,15 @@ class PropertiesController < ApplicationController
     end
 
     def create
-        @property = Property.create(params.require(:property).permit(:title, :description, :rooms, :bathrooms, :pets, :parking_slot, :daily_rate))
+        @property = Property.create(params.require(:property).permit(:title, 
+                                                                    :description, 
+                                                                    :rooms, 
+                                                                    :bathrooms, 
+                                                                    :pets, 
+                                                                    :parking_slot, 
+                                                                    :daily_rate, 
+                                                                    :property_type_id
+                                                                    ))
         if @property.save
             redirect_to @property
         else

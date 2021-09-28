@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe 'Visitor register property' do
     it 'successfully' do
-    
+        
+        PropertyType.create!(title: 'Casa')
+
         visit root_path
         click_on 'Cadastrar imóvel'
         fill_in 'Título', with: 'Casa em Florianópolis'
@@ -12,6 +14,7 @@ describe 'Visitor register property' do
         fill_in 'Diária', with: 200
         check 'Aceita Pets'
         check 'Vaga de estacionamento'
+        select 'Casa', from: 'Tipo'
         click_on 'Enviar'
 
         expect(page).to have_content('Casa em Florianópolis')
@@ -21,6 +24,7 @@ describe 'Visitor register property' do
         expect(page).to have_content('Aceita Pets: Sim')
         expect(page).to have_content('Estacionamento: Sim')
         expect(page).to have_content('Diária: R$ 200,00')
+        expect(page).to have_content('Casa')
     end
 
     it 'but decide to return to home instead' do
@@ -32,66 +36,97 @@ describe 'Visitor register property' do
         expect(current_path).to eq root_path
     end
 
-    it 'and try to register property without title and not succed' do
+    it 'and try to register property without title and do not succed' do
     
+        casa = PropertyType.create!(title: 'Casa')
+
         visit root_path
         click_on 'Cadastrar imóvel'
         fill_in 'Descrição', with: 'Ótima casa próxima a UFSC'
         fill_in 'Quartos', with: '3'
         fill_in 'Banheiros', with: '2'
         fill_in 'Diária', with: 200
+        select 'Casa', from: 'Tipo'
         click_on 'Enviar'
 
         expect(page).to have_content('Não foi possível cadastrar')
     end
 
-    it 'and try to register property without description and not succed' do
+    it 'and try to register property without description and do not succed' do
     
+        casa = PropertyType.create!(title: 'Casa')
+
         visit root_path
         click_on 'Cadastrar imóvel'
         fill_in 'Título', with: 'Casa em Florianópolis'
         fill_in 'Quartos', with: '3'
         fill_in 'Banheiros', with: '2'
         fill_in 'Diária', with: 200
+        select 'Casa', from: 'Tipo'
         click_on 'Enviar'
 
         expect(page).to have_content('Não foi possível cadastrar')
     end 
 
-    it 'and try to register property without rooms and not succed' do
+    it 'and try to register property without rooms and do not succed' do
     
+        casa = PropertyType.create!(title: 'Casa')
+
         visit root_path
         click_on 'Cadastrar imóvel'
         fill_in 'Título', with: 'Casa em Florianópolis'
         fill_in 'Descrição', with: 'Ótima casa próxima a UFSC'
         fill_in 'Banheiros', with: '2'
         fill_in 'Diária', with: 200
+        select 'Casa', from: 'Tipo'
         click_on 'Enviar'
 
         expect(page).to have_content('Não foi possível cadastrar')
     end 
 
-    it 'and try to register property without bathrooms and not succed' do
+    it 'and try to register property without bathrooms and do not succed' do
     
+        casa = PropertyType.create!(title: 'Casa')
+
         visit root_path
         click_on 'Cadastrar imóvel'
         fill_in 'Título', with: 'Casa em Florianópolis'
         fill_in 'Descrição', with: 'Ótima casa próxima a UFSC'
         fill_in 'Quartos', with: '3'
         fill_in 'Diária', with: 200
+        select 'Casa', from: 'Tipo'
         click_on 'Enviar'
 
         expect(page).to have_content('Não foi possível cadastrar')
     end
 
-    it 'and try to register property without daily rate and not succed' do
+    it 'and try to register property without daily rate and do not succed' do
     
+        casa = PropertyType.create!(title: 'Casa')
+
         visit root_path
         click_on 'Cadastrar imóvel'
         fill_in 'Título', with: 'Casa em Florianópolis'
         fill_in 'Descrição', with: 'Ótima casa próxima a UFSC'
         fill_in 'Quartos', with: '3'
         fill_in 'Banheiros', with: '2'
+        select 'Casa', from: 'Tipo'
+        click_on 'Enviar'
+
+        expect(page).to have_content('Não foi possível cadastrar')
+    end
+
+    it 'and try to register property without choosing the type and do not succed' do
+    
+        casa = PropertyType.create!(title: 'Casa')
+
+        visit root_path
+        click_on 'Cadastrar imóvel'
+        fill_in 'Título', with: 'Casa em Florianópolis'
+        fill_in 'Descrição', with: 'Ótima casa próxima a UFSC'
+        fill_in 'Quartos', with: '3'
+        fill_in 'Banheiros', with: '2'
+        fill_in 'Diária', with: 200
         click_on 'Enviar'
 
         expect(page).to have_content('Não foi possível cadastrar')
