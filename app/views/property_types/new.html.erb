@@ -1,9 +1,13 @@
 <h1> Cadastro de tipo de imóvel </h1>
 
 <%= form_with(model: @property_type) do |f|%>
-    <%= f.label :title, 'Nome'%>
-    <%= f.text_field :title %>
-    <%= f.submit 'Enviar' %>
+    <div>
+        <h3><%= f.label :title, 'Nome'%></h3>
+    </div>
+    <div style="margin-top: 25px; margin-bottom: 25px">
+        <%= f.text_field :title %>    
+        <%= f.submit 'Enviar' %>
+    </div>
 <% end %>
 
 <% if @property_type.errors.any? %>

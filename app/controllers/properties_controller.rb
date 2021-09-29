@@ -15,7 +15,8 @@ class PropertiesController < ApplicationController
                                                                     :pets, 
                                                                     :parking_slot, 
                                                                     :daily_rate, 
-                                                                    :property_type_id
+                                                                    :property_type_id,
+                                                                    :property_location_id
                                                                     ))
         if @property.save
             redirect_to @property

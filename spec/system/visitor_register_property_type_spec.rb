@@ -11,6 +11,17 @@ describe 'Visitor register property type' do
         expect(page).to have_content('Apartamento')
     end
 
+    it 'successfully and return to home' do
+
+        visit root_path
+        click_on 'Cadastrar tipo'
+        fill_in 'Nome', with: 'Apartamento'
+        click_on 'Enviar'
+        click_on 'Voltar'
+
+        expect(current_path).to eq root_path
+    end
+
     it 'and do not succed on empty name field' do
         
         visit root_path

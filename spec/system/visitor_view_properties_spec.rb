@@ -5,15 +5,19 @@ describe 'Visitor visit homepage' do
     it 'and view properties' do
         #Arrannge
         casa = PropertyType.create!(title: 'Casa')
+        litoral_rj = PropertyLocation.create!(title: 'Litoral RJ')
         cobertura = PropertyType.create!(title: 'Cobertura')
+        manaus_am = PropertyLocation.create!(title: 'Manaus AM')
         Property.create!({title: 'Casa com quintal em Copacabana',
                         description: 'Excelente casa, recém reformada com 2 vagas de garagem',
-                        rooms: 3, bathrooms: 3, daily_rate: 100, parking_slot: true, property_type: casa
+                        rooms: 3, bathrooms: 3, daily_rate: 100, parking_slot: true, property_type: casa,
+                        property_location: litoral_rj
                         })
 
         Property.create!({title: 'Cobertura em Manaus',
                         description: 'Cobertura de 300m2, churrasqueira e sauna privativa',
-                        rooms: 5, bathrooms: 2, daily_rate: 200, parking_slot: false, property_type: cobertura
+                        rooms: 5, bathrooms: 2, daily_rate: 200, parking_slot: false, property_type: cobertura,
+                        property_location: manaus_am
                         })
         #Act
         visit root_path
@@ -35,10 +39,11 @@ describe 'Visitor visit homepage' do
     it 'and view properties details' do
         #arrange
         casa = PropertyType.create!(title: 'Casa')
+        litoral_rj = PropertyLocation.create!(title: 'Litoral RJ')
         Property.create!({title: 'Casa com quintal em Copacabana',
                         description: 'Excelente casa, recém reformada com 2 vagas de garagem',
                         rooms: 3, parking_slot: true, bathrooms: 2, pets: true, daily_rate: 500,
-                        property_type: casa
+                        property_type: casa, property_location: litoral_rj
                         })
         
         
@@ -53,14 +58,16 @@ describe 'Visitor visit homepage' do
         expect(page).to have_content("Estacionamento: Sim")
         expect(page).to have_content("Diária: R$ 500,00")
         expect(page).to have_content("Casa")    
+        expect(page).to have_content("Litoral RJ")   
     end
 
     it 'and view properties details and return to home' do
         casa = PropertyType.create!(title: 'Casa')
+        litoral_rj = PropertyLocation.create!(title: 'Litoral RJ')
         Property.create!({title: 'Casa com quintal em Copacabana',
         description: 'Excelente casa, recém reformada com 2 vagas de garagem',
         rooms: 3, parking_slot: true, bathrooms: 2, pets: true, daily_rate: 500,
-        property_type: casa
+        property_type: casa, property_location: litoral_rj
         })
 
         visit root_path
