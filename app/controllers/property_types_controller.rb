@@ -1,7 +1,6 @@
 class PropertyTypesController < ApplicationController
     def new
         @property_type = PropertyType.new
-
     end
 
     def create

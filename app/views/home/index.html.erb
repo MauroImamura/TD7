@@ -7,9 +7,17 @@
 <h3 style="text-align: right; margin-right: 10%"><%= link_to 'Cadastrar região', new_property_location_path %></h3>
 </nav>
 
+<aside><h2>Filtrar por tipo:</h2>
+    <nav>
+        <% @property_types.each do |tipo| %> 
+            <h4 style="margin-top: 25px; margin-bottom: 25px"><%= link_to tipo.title, property_type_path(tipo.id) %><h4>
+        <% end %>
+    </nav>
+</aside>
+
 <% @properties.each do |p| %>
     <div style="padding-top: 25px; padding-bottom: 25px; padding-left: 5%; border-style: solid">
-    <h2><%= link_to p.title, property_path(p) %></h2>
+    <h4><%= link_to p.title, property_path(p) %></h4>
     <p><%= p.description %></p>
     <p>Quartos: <%= p.rooms %></p>
     </div>
@@ -18,3 +26,5 @@
 <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
 <% end %>
+
+<%#= render "shared/sample.html.erb" %>
