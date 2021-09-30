@@ -38,13 +38,20 @@ describe 'Visitor register property' do
     end
 
     it 'and try to register property without information and do not succed' do
-        casa = PropertyType.create!(title: 'Casa')
+        PropertyType.create!(title: 'Casa')
         PropertyLocation.create!(title: 'Litoral SC')
 
         visit root_path
         click_on 'Cadastrar imóvel'
+        select 'Casa', from: 'Tipo'
+        select 'Litoral SC', from: 'Região'
         click_on 'Enviar'
 
         expect(page).to have_content('Não foi possível cadastrar')
+        expect(page).to have_content('Título não pode ficar em branco')
+        expect(page).to have_content('Descrição não pode ficar em branco')
+        expect(page).to have_content('Quartos não pode ficar em branco')
+        expect(page).to have_content('Banheiros não pode ficar em branco')
+        expect(page).to have_content('Diária não pode ficar em branco')
     end
 end

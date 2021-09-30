@@ -1,0 +1,12 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      property: Propriedade
+    attributes:
+      property:
+        title: Título
+        description: Descrição
+        bathrooms: Banheiros
+        rooms: Quartos
+        daily_rate: Diária
