@@ -1,3 +1,7 @@
-<h1 style="margin-top: 50px; text-align: center"> Região cadastrada: </h1>
-<p style="text-align: center"> <%= @property_location.title %> </p>
+<h1 style="margin-top: 50px; text-align: center"> Região do imóvel: <%= @property_location.title %> </h1>
+
+<h2 style="margin-top: 50px; text-align: center">Imóveis disponíveis:</h2>
+
+<%= render "properties/properties", properties: @property_location.properties %>
+
 <p style="margin-top: 50px; text-align: center"><%= link_to 'Voltar', root_path %></p>
