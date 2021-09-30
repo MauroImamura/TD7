@@ -32,7 +32,7 @@ describe 'Visitor register property' do
     it 'but decide to return to home instead' do
         visit root_path
         click_on 'Cadastrar imóvel'
-        click_on 'Voltar'
+        click_on 'Início'
 
         expect(current_path).to eq root_path
     end

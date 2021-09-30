@@ -46,7 +46,7 @@ describe 'Visitor filter property by region' do
                 
         visit root_path
         click_on 'Litoral RJ'
-        click_on 'Voltar'
+        click_on 'Início'
 
         expect(current_path).to eq root_path
     end

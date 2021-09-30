@@ -17,7 +17,7 @@ describe 'Visitor register new region' do
         click_on 'Cadastrar região'
         fill_in 'Nome', with: 'São Paulo'
         click_on 'Enviar'
-        click_on 'Voltar'
+        click_on 'Início'
 
         expect(current_path).to eq root_path
     end
@@ -48,7 +48,7 @@ describe 'Visitor register new region' do
         
         visit root_path
         click_on 'Cadastrar região'
-        click_on 'Voltar'
+        click_on 'Início'
 
         expect(current_path).to eq root_path
     end

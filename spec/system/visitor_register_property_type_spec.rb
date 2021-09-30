@@ -17,7 +17,7 @@ describe 'Visitor register property type' do
         click_on 'Cadastrar tipo'
         fill_in 'Nome', with: 'Apartamento'
         click_on 'Enviar'
-        click_on 'Voltar'
+        click_on 'Início'
 
         expect(current_path).to eq root_path
     end
@@ -48,7 +48,7 @@ describe 'Visitor register property type' do
         
         visit root_path
         click_on 'Cadastrar tipo'
-        click_on 'Voltar'
+        click_on 'Início'
 
         expect(current_path).to eq root_path
     end

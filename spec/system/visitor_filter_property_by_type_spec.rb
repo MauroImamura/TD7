@@ -36,4 +36,20 @@ describe 'Visitor filter property by type' do
         expect(page).to have_content('Excelente casa, recém reformada com 2 vagas de garagem')
         expect(page).to have_content('Quartos: 3')
     end
+
+    it 'and return to homepage' do
+        casa = PropertyType.create!(title: 'Casa')
+        litoral_rj = PropertyLocation.create!(title: 'Litoral RJ')
+        Property.create!({title: 'Casa com quintal em Copacabana',
+                description: 'Excelente casa, recém reformada com 2 vagas de garagem',
+                rooms: 3, parking_slot: true, bathrooms: 2, pets: true, daily_rate: 500,
+                property_type: casa, property_location: litoral_rj
+                })
+                
+        visit root_path
+        click_on 'Casa'
+        click_on 'Início'
+
+        expect(current_path).to eq root_path
+    end
 end

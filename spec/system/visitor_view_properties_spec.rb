@@ -72,7 +72,7 @@ describe 'Visitor visit homepage' do
 
         visit root_path
         click_on 'Casa com quintal em Copacabana'
-        click_on 'Voltar'
+        click_on 'Início'
         
         expect(current_path).to eq root_path
     end
