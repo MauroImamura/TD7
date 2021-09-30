@@ -1,12 +1,7 @@
 <h1 style="margin-top: 50px; text-align: center"> Tipo de imóvel: <%= @property_type.title %> </h1>
 
 <h2 style="margin-top: 50px; text-align: center">Imóveis disponíveis:</h2>
-<%= @property_type.properties.each do |property| %>
-    <div style="padding-top: 25px; padding-bottom: 25px; padding-left: 5%; border-style: solid">
-        <h3><%= link_to property.title, property_path(property.id) %><h3>
-        <p><%= property.description%></p>
-        <p>Quartos: <%= property.rooms%></p>
-    </div>
-<% end %>
+
+<%= render "properties/properties", properties: @property_type.properties %>
 
 <p style="margin-top: 50px; text-align: center"><%= link_to 'Voltar', root_path %></p>

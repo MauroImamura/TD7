@@ -15,13 +15,7 @@
     </nav>
 </aside>
 
-<% @properties.each do |p| %>
-    <div style="padding-top: 25px; padding-bottom: 25px; padding-left: 5%; border-style: solid">
-    <h4><%= link_to p.title, property_path(p) %></h4>
-    <p><%= p.description %></p>
-    <p>Quartos: <%= p.rooms %></p>
-    </div>
-<% end %>
+<%= render "properties/properties", properties: @properties %>
 
 <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
