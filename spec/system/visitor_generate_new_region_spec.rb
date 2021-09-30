@@ -29,7 +29,7 @@ describe 'Visitor register new region' do
         fill_in 'Nome', with: ''
         click_on 'Enviar'
 
-        expect(page).to have_content('Não foi possível cadastrar: nome inválido')
+        expect(page).to have_content('Nome não pode ficar em branco')
     end
 
     it 'and try to submit a name that already exists' do
@@ -41,7 +41,7 @@ describe 'Visitor register new region' do
         fill_in 'Nome', with: 'São Paulo'
         click_on 'Enviar'
 
-        expect(page).to have_content('Não foi possível cadastrar: este nome já foi usado')
+        expect(page).to have_content('Nome já está em uso')
     end
 
     it 'but decide to return to home instead' do
