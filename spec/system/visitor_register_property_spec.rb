@@ -4,7 +4,9 @@ describe 'Visitor register property' do
     it 'successfully' do
         PropertyType.create!(title: 'Casa')
         PropertyLocation.create!(title: 'Litoral SC')
+        property_owner = PropertyOwner.create!(email: 'ousuario@mail.com.br', password: '123456')
 
+        login_as property_owner, scope: :property_owner
         visit root_path
         click_on 'Cadastrar imóvel'
         fill_in 'Título', with: 'Casa em Florianópolis'
@@ -30,6 +32,9 @@ describe 'Visitor register property' do
     end
 
     it 'but decide to return to home instead' do
+        property_owner = PropertyOwner.create!(email: 'ousuario@mail.com.br', password: '123456')
+
+        login_as property_owner, scope: :property_owner
         visit root_path
         click_on 'Cadastrar imóvel'
         click_on 'Início'
@@ -40,7 +45,9 @@ describe 'Visitor register property' do
     it 'and try to register property without information and do not succed' do
         PropertyType.create!(title: 'Casa')
         PropertyLocation.create!(title: 'Litoral SC')
+        property_owner = PropertyOwner.create!(email: 'ousuario@mail.com.br', password: '123456')
 
+        login_as property_owner, scope: :property_owner
         visit root_path
         click_on 'Cadastrar imóvel'
         select 'Casa', from: 'Tipo'

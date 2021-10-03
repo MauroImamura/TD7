@@ -2,7 +2,9 @@
 <h3 style="text-align: center; margin-bottom: 50px">Boas vindas ao sistema de locação de propriedades</h3>
 
 <nav>
-<h3 style="text-align: right; margin-right: 10%"><%= link_to 'Cadastrar imóvel', new_property_path %></h3>
+<% if property_owner_signed_in? %>
+    <h3 style="text-align: right; margin-right: 10%"><%= link_to 'Cadastrar imóvel', new_property_path %></h3>
+<% end %>
 <h3 style="text-align: right; margin-right: 10%"><%= link_to 'Cadastrar tipo', new_property_type_path %></h3>
 <h3 style="text-align: right; margin-right: 10%"><%= link_to 'Cadastrar região', new_property_location_path %></h3>
 </nav>
@@ -25,8 +27,6 @@
 
 <%= render "properties/properties", properties: @properties %>
 
-<% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
+<% if @properties.empty? %>
+    <div><p>Nenhum imóvel disponível</p></div>
 <% end %>
-
-<%#= render "shared/sample.html.erb" %>

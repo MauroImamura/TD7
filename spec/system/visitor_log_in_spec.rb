@@ -29,7 +29,7 @@ describe 'Visitor log in' do
 
             expect(page).to have_content('Saiu com sucesso')
             expect(page).not_to have_link('Logout')
-            expect(page).to have_link('Login')
+            expect(page).to have_link('Entrar')
             expect(page).not_to have_link('Cadastrar imóvel')
             expect(page).not_to have_content(property_owner.email)
         end
