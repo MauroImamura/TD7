@@ -6,3 +6,4 @@ pt-BR:
     attributes:
       property_owner:
         password: Senha
+        password_confirmation: Confirmação de Senha

@@ -42,4 +42,18 @@ describe 'Visitor log in' do
             expect(current_path).to eq root_path
         end
     end
+
+    context 'for the first time (sign up)' do
+        it 'successfully' do
+            visit root_path
+            click_on 'Entrar'
+            click_on 'Sign up'
+            fill_in 'Email', with: 'owner@domain.com'
+            fill_in 'Senha', with: '123456'
+            fill_in 'Confirmação de Senha', with: '123456'
+            click_on 'Sign up'
+
+            expect(page).to have_content('Cadastro efetuado com sucesso')
+        end
+    end
 end

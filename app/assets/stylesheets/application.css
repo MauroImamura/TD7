@@ -51,3 +51,14 @@ span.top_bar {
     font-size: 18px;
     margin: 20px
 }
+
+div.login_alerts {
+    margin: auto;
+    background-color: darkkhaki;
+}
+
+p.login_alerts {
+    font-size: 20px;
+    text-align: center;
+    color: black
+}
