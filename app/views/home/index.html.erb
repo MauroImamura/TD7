@@ -5,17 +5,21 @@
 
 <nav style="background-color: #252535">
     <div style="display: table; margin: auto; padding-top: 15px; padding-bottom: 15px">
-        <span>
-            <% if property_owner_signed_in? %>
-                <li class="links_registro"><%= link_to 'Cadastrar imóvel', new_property_path %></li>
-            <% end %>
-        </span>
-        <span>
-            <li class="links_registro"><%= link_to 'Cadastrar tipo', new_property_type_path %></li>
-        </span>
-        <span>
-            <li class="links_registro"><%= link_to 'Cadastrar região', new_property_location_path %></li>
-        </span>
+        <% if property_owner_signed_in? %>
+            <span>
+                <p class="links_registro"><%= link_to 'Cadastrar imóvel', new_property_path %></p>
+            </span>
+            <span>
+                <p class="links_registro"><%= link_to 'Cadastrar tipo', new_property_type_path %></p>
+            </span>
+            <span>
+                <p class="links_registro"><%= link_to 'Cadastrar região', new_property_location_path %></p>
+            </span>
+        <% else %>
+            <span>
+                <p class="links_registro"><%= link_to 'Cadastre-se', new_property_owner_registration_path %> ou <%= link_to 'faça login', new_property_owner_session_path%> para acessar as propriedades.</p>
+            </span>
+        <% end %>
     </div>
 </nav>
 

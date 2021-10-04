@@ -2,7 +2,9 @@ require 'rails_helper'
 
 describe 'Visitor register property type' do
     it 'successfully' do
+        property_owner = PropertyOwner.create!(email: 'ousuario@mail.com.br', password: '123456')
 
+        login_as property_owner, scope: :property_owner
         visit root_path
         click_on 'Cadastrar tipo'
         fill_in 'Nome', with: 'Apartamento'
@@ -12,7 +14,9 @@ describe 'Visitor register property type' do
     end
 
     it 'successfully and return to home' do
+        property_owner = PropertyOwner.create!(email: 'ousuario@mail.com.br', password: '123456')
 
+        login_as property_owner, scope: :property_owner
         visit root_path
         click_on 'Cadastrar tipo'
         fill_in 'Nome', with: 'Apartamento'
@@ -23,7 +27,9 @@ describe 'Visitor register property type' do
     end
 
     it 'and do not succed on empty name field' do
-        
+        property_owner = PropertyOwner.create!(email: 'ousuario@mail.com.br', password: '123456')
+
+        login_as property_owner, scope: :property_owner
         visit root_path
         click_on 'Cadastrar tipo'
         fill_in 'Nome', with: ''
@@ -33,9 +39,10 @@ describe 'Visitor register property type' do
     end
 
     it 'and try to submit a name that already exists' do
-    
         PropertyType.create({title: 'Apartamento'})
+        property_owner = PropertyOwner.create!(email: 'ousuario@mail.com.br', password: '123456')
 
+        login_as property_owner, scope: :property_owner
         visit root_path
         click_on 'Cadastrar tipo'
         fill_in 'Nome', with: 'Apartamento'
@@ -45,7 +52,9 @@ describe 'Visitor register property type' do
     end
 
     it 'but decide to return to home instead' do
-        
+        property_owner = PropertyOwner.create!(email: 'ousuario@mail.com.br', password: '123456')
+
+        login_as property_owner, scope: :property_owner
         visit root_path
         click_on 'Cadastrar tipo'
         click_on 'Início'
