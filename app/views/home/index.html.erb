@@ -1,32 +1,42 @@
-<h1 style="text-align: center; margin-top: 50px">Flats</h1>
-<h3 style="text-align: center; margin-bottom: 50px">Boas vindas ao sistema de locação de propriedades</h3>
+<div class = 'Title_subtitle' style = "width: 600px; margin: auto">
+<h1 style="text-align: center; font-size: 50px; margin-bottom: 10px">Flats</h1>
+<p style="text-align: center; font-size: 25px; margin-top: 0px">Boas vindas ao sistema de locação de propriedades</p>
+</div>
 
-<nav>
-<% if property_owner_signed_in? %>
-    <h3 style="text-align: right; margin-right: 10%"><%= link_to 'Cadastrar imóvel', new_property_path %></h3>
-<% end %>
-<h3 style="text-align: right; margin-right: 10%"><%= link_to 'Cadastrar tipo', new_property_type_path %></h3>
-<h3 style="text-align: right; margin-right: 10%"><%= link_to 'Cadastrar região', new_property_location_path %></h3>
+<nav style="background-color: #252535">
+    <div style="display: table; margin: auto">
+        <ul>
+            <% if property_owner_signed_in? %>
+                <li class="links_registro"><%= link_to 'Cadastrar imóvel', new_property_path %></li>
+            <% end %>
+            <li class="links_registro"><%= link_to 'Cadastrar tipo', new_property_type_path %></li>
+            <li class="links_registro"><%= link_to 'Cadastrar região', new_property_location_path %></li>
+        </ul>
+    </div>
 </nav>
 
-<aside><h2>Filtrar por tipo:</h2>
-    <nav>
-        <% @property_types.each do |tipo| %> 
-            <h4 style="margin-top: 25px; margin-bottom: 25px"><%= link_to tipo.title, property_type_path(tipo.id) %><h4>
-        <% end %>
-    </nav>
-</aside>
+<div style="width:23%; position:fixed; background-color: #252535; overflow-y: scroll">
+    <aside><h2 class="sidebar_titles">Filtrar por tipo:</h2>
+        <nav>
+            <% @property_types.each do |tipo| %> 
+                <p style="margin-top: 25px; margin-bottom: 25px"><%= link_to tipo.title, property_type_path(tipo.id) %><p>
+            <% end %>
+        </nav>
+    </aside>
 
-<aside><h2>Filtrar por região:</h2>
-    <nav>
-        <% @property_locations.each do |local| %> 
-            <h4 style="margin-top: 25px; margin-bottom: 25px"><%= link_to local.title, property_location_path(local.id) %><h4>
-        <% end %>
-    </nav>
-</aside>
+    <aside><h2 class="sidebar_titles">Filtrar por região:</h2>
+        <nav>
+            <% @property_locations.each do |local| %> 
+                <p style="margin-top: 25px; margin-bottom: 25px"><%= link_to local.title, property_location_path(local.id) %><p>
+            <% end %>
+        </nav>
+    </aside>
+</div>
 
-<%= render "properties/properties", properties: @properties %>
+<div style = "margin-left: 25%">
+    <%= render "properties/properties", properties: @properties %>
 
-<% if @properties.empty? %>
-    <div><p>Nenhum imóvel disponível</p></div>
-<% end %>
+    <% if @properties.empty? %>
+        <div><p>Nenhum imóvel disponível</p></div>
+    <% end %>
+</div>

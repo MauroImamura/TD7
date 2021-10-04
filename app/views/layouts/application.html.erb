@@ -5,18 +5,41 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    #<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <style>
+      body {
+            color: white;
+            background-color: black;
+      }
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      a {
+        color: Gold;
+      }
+
+      a:visited {
+        color: GoldenRod;
+      }
+
+      li.links_registro {
+        display: inline;
+        font-size: 20px;
+        padding: 20px
+      }
+
+      h2.sidebar_titles {
+        font-size: 20px
+      }
+    </style>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <nav>
+    <nav style="text-align: right; background-color: #303040; padding: 2px; margin-top: 0%">
       <% if property_owner_signed_in? %>
-        <p><%= current_property_owner.email%></p>
-        <p><%= link_to 'Logout', destroy_property_owner_session_path, method: :delete %></p>
+        <p style= "font-size: 20px"><%= current_property_owner.email%></p>
+        <p style= "font-size: 20px"><%= link_to 'Logout', destroy_property_owner_session_path, method: :delete %></p>
       <% else %>
-        <p><%= link_to 'Entrar', new_property_owner_session_path %></p>
+        <p style= "font-size: 20px"><%= link_to 'Entrar', new_property_owner_session_path %></p>
       <% end %>
     </nav>
 
