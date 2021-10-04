@@ -13,3 +13,41 @@
  *= require_tree .
  *= require_self
  */
+ body {
+    color: white;
+    background-color: black;
+}
+
+a {
+    color: Gold;
+}
+
+a:visited {
+    color: GoldenRod;
+}
+
+li.links_registro {
+    display: inline;
+    font-size: 20px;
+    padding: 20px
+}
+
+h2.sidebar_titles {
+    font-size: 20px
+}
+
+nav.top_bar { 
+    background-color: #252535;
+    height: 20px;
+    padding: 20px;
+}
+
+div.top_bar {
+    display: table;
+    float: right;
+}
+
+span.top_bar {
+    font-size: 18px;
+    margin: 20px
+}

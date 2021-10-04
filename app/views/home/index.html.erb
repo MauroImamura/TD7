@@ -4,14 +4,18 @@
 </div>
 
 <nav style="background-color: #252535">
-    <div style="display: table; margin: auto">
-        <ul>
+    <div style="display: table; margin: auto; padding-top: 15px; padding-bottom: 15px">
+        <span>
             <% if property_owner_signed_in? %>
                 <li class="links_registro"><%= link_to 'Cadastrar imóvel', new_property_path %></li>
             <% end %>
+        </span>
+        <span>
             <li class="links_registro"><%= link_to 'Cadastrar tipo', new_property_type_path %></li>
+        </span>
+        <span>
             <li class="links_registro"><%= link_to 'Cadastrar região', new_property_location_path %></li>
-        </ul>
+        </span>
     </div>
 </nav>
 
