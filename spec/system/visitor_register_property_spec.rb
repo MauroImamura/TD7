@@ -29,6 +29,7 @@ describe 'Visitor register property' do
         expect(page).to have_content('Diária: R$ 200,00')
         expect(page).to have_content('Casa')
         expect(page).to have_content('Litoral SC')
+        expect(page).to have_content('Imóvel de: ousuario@mail.com.br')
     end
 
     it 'but decide to return to home instead' do

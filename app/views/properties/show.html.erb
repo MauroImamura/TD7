@@ -1,5 +1,6 @@
 <h1 style="margin-top: 50px; text-align: center"><%= @property.title%></h1>
-<p style="text-align: center"> Tipo: <%= @property.property_location.title %></p>
+<p style="text-align: center"> Imóvel de: <%= @property.property_owner.email %></p>
+<p style="text-align: center"> Região: <%= @property.property_location.title %></p>
 <p style="text-align: center"> Tipo: <%= @property.property_type.title %></p>
 <p style="text-align: center"><%= @property.description %></p>
 <p style="text-align: center">Quartos: <%= @property.rooms%></p>

@@ -1,0 +1,7 @@
+<h1>Meus imóveis</h1>
+<% if @properties.any? %>
+    <%= render "properties/properties", properties: @properties %>
+<% else %>
+    <p style="text-align: center"> Você ainda não tem imóveis cadastrados. <p/>
+    <p style="text-align: center"><%= link_to 'Cadastre agora!', new_property_path %></p>
+<% end %>

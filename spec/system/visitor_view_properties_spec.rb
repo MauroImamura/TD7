@@ -4,6 +4,7 @@ describe 'Visitor visit homepage' do
 
     it 'and view properties' do
         #Arrannge
+        ousuario = PropertyOwner.create!(email: 'ousuario@mail.com.br', password: '123456')
         casa = PropertyType.create!(title: 'Casa')
         litoral_rj = PropertyLocation.create!(title: 'Litoral RJ')
         cobertura = PropertyType.create!(title: 'Cobertura')
@@ -11,13 +12,13 @@ describe 'Visitor visit homepage' do
         Property.create!({title: 'Casa com quintal em Copacabana',
                         description: 'Excelente casa, recém reformada com 2 vagas de garagem',
                         rooms: 3, bathrooms: 3, daily_rate: 100, parking_slot: true, property_type: casa,
-                        property_location: litoral_rj
+                        property_location: litoral_rj, property_owner: ousuario
                         })
 
         Property.create!({title: 'Cobertura em Manaus',
                         description: 'Cobertura de 300m2, churrasqueira e sauna privativa',
                         rooms: 5, bathrooms: 2, daily_rate: 200, parking_slot: false, property_type: cobertura,
-                        property_location: manaus_am
+                        property_location: manaus_am, property_owner: ousuario
                         })
         #Act
         visit root_path
@@ -38,12 +39,13 @@ describe 'Visitor visit homepage' do
 
     it 'and view properties details' do
         #arrange
+        ousuario = PropertyOwner.create!(email: 'ousuario@mail.com.br', password: '123456')
         casa = PropertyType.create!(title: 'Casa')
         litoral_rj = PropertyLocation.create!(title: 'Litoral RJ')
         Property.create!({title: 'Casa com quintal em Copacabana',
                         description: 'Excelente casa, recém reformada com 2 vagas de garagem',
                         rooms: 3, parking_slot: true, bathrooms: 2, pets: true, daily_rate: 500,
-                        property_type: casa, property_location: litoral_rj
+                        property_type: casa, property_location: litoral_rj, property_owner: ousuario
                         })
         
         
@@ -62,12 +64,13 @@ describe 'Visitor visit homepage' do
     end
 
     it 'and view properties details and return to home' do
+        ousuario = PropertyOwner.create!(email: 'ousuario@mail.com.br', password: '123456')
         casa = PropertyType.create!(title: 'Casa')
         litoral_rj = PropertyLocation.create!(title: 'Litoral RJ')
         Property.create!({title: 'Casa com quintal em Copacabana',
         description: 'Excelente casa, recém reformada com 2 vagas de garagem',
         rooms: 3, parking_slot: true, bathrooms: 2, pets: true, daily_rate: 500,
-        property_type: casa, property_location: litoral_rj
+        property_type: casa, property_location: litoral_rj, property_owner: ousuario
         })
 
         visit root_path
