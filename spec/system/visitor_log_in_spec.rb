@@ -34,6 +34,12 @@ describe 'Visitor log in' do
             expect(page).not_to have_content(property_owner.email)
         end
 
-        #TODO registro do property_owner: email, senha, confirmação de senha
+        it 'but decide to return to home' do
+            visit root_path
+            click_on 'Entrar'
+            click_on 'Início'
+            
+            expect(current_path).to eq root_path
+        end
     end
 end
