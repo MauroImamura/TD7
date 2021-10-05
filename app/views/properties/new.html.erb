@@ -1,46 +1,4 @@
-<h1>Cadastro de imóvel</h1>
-
-<%= form_with(model: @property) do |f| %>
-    <div> 
-        <h3><%= f.label :title, 'Título'%> </h3>
-        <%= f.text_field :title%>
-    </div>
-    <div>
-        <h3><%= f.label :property_type_id, 'Tipo' %></h3>
-        <%= f.collection_select :property_type_id, PropertyType.all, :id, :title, prompt: 'Escolha um tipo' %>
-    </div>
-    <div>
-        <h3><%= f.label :property_location_id, 'Região' %></h3>
-        <%= f.collection_select :property_location_id, PropertyLocation.all, :id, :title, prompt: 'Escolha uma região' %>
-    </div>
-    <div> 
-        <h3><%= f.label :description, 'Descrição'%></h3> 
-        <%= f.text_field :description%>
-    </div>
-    <div> 
-        <h3><%= f.label :rooms, 'Quartos'%> </h3>
-        <%= f.number_field :rooms%>
-    </div>
-    <div> 
-        <h3><%= f.label :bathrooms, 'Banheiros'%> </h3>
-        <%= f.number_field :bathrooms%>
-    </div>
-    <div> 
-        <h3><%= f.label :daily_rate, 'Diária'%> </h3>
-        <%= f.text_field :daily_rate%>
-    </div>
-    <div> 
-        <h3><%= f.label :pets, 'Aceita Pets'%> </h3>
-        <%= f.check_box :pets%>
-    </div>
-    <div> 
-        <h3><%= f.label :parking_slot, 'Vaga de estacionamento'%> </h3>
-        <%= f.check_box :parking_slot%>
-    </div>
-    <div style="margin-top: 25px; margin-bottom: 25px"> 
-        <%= f.submit 'Enviar' %> 
-    </div>
-<% end %>
+<h1 style="text-align: center">Cadastro de imóvel</h1>
 
 <% if flash.now[:notice] %>
     <div><p style="color: #fa0303"> <%= flash.now[:notice] %></p></div>
@@ -52,6 +10,54 @@
       <li><%= error %></li>
     <% end %>
   </ul>
+<% end %>
+
+<%= form_with(model: @property) do |f| %>
+    <div style="display: flex">
+        <span style="margin-left: auto; margin-right: auto; margin-top: 10px"> 
+            <h3 style="text-align: center"><%= f.label :title, 'Título'%> </h3>
+            <%= f.text_field :title%>
+        </span>
+        <span style="margin-left: auto; margin-right: auto; margin-top: 10px">
+            <h3 style="text-align: center"><%= f.label :property_type_id, 'Tipo' %></h3>
+            <%= f.collection_select :property_type_id, PropertyType.all, :id, :title, prompt: 'Escolha um tipo' %>
+        </span>
+        <span style="margin-left: auto; margin-right: auto; margin-top: 10px">
+            <h3 style="text-align: center"><%= f.label :property_location_id, 'Região' %></h3>
+            <%= f.collection_select :property_location_id, PropertyLocation.all, :id, :title, prompt: 'Escolha uma região' %>
+        </span>
+    </div>
+    <div style="display: flex">
+        <span style="margin-left: auto; margin-right: auto; margin-top: 70px"> 
+            <h3 style="text-align: center"><%= f.label :rooms, 'Quartos'%> </h3>
+            <%= f.number_field :rooms%>
+        </span>
+        <span style="margin-left: auto; margin-right: auto; margin-top: 70px"> 
+            <h3 style="text-align: center"><%= f.label :bathrooms, 'Banheiros'%> </h3>
+            <%= f.number_field :bathrooms%>
+        </span>
+        <span style="margin-left: auto; margin-right: auto; margin-top: 70px"> 
+            <h3 style="text-align: center"><%= f.label :daily_rate, 'Diária'%> </h3>
+            <%= f.text_field :daily_rate%>
+        </span>
+    </div>
+    <div style="display: flex">
+        <span style="margin-left: auto; margin-right: auto; margin-top: 70px"> 
+            <h3 style="text-align: center"><%= f.check_box :pets%><%= f.label :pets, 'Aceita Pets'%> </h3>
+        </span>
+        <span style="margin-left: auto; margin-right: auto; margin-top: 70px"> 
+            <h3 style="text-align: center"><%= f.check_box :parking_slot%><%= f.label :parking_slot, 'Vaga de estacionamento'%> </h3>
+        </span>
+    </div>
+    <div style="display: flex">
+        <span style="margin-left: auto; margin-right: auto; margin-top: 10px"> 
+            <h3 style="text-align: center"><%= f.label :description, 'Descrição'%></h3> 
+            <%= f.text_field :description, size: "100px" %>
+        </span>
+    </div>
+    <div style="margin-top: 30px; width: 10%; margin-left: auto; margin-right: auto"> 
+        <%= f.submit 'Enviar' %>
+    </div>
 <% end %>
 
 <%= render "shared/return_home" %>
