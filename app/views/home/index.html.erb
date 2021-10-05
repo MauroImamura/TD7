@@ -15,9 +15,13 @@
             <span>
                 <p class="links_registro"><%= link_to 'Cadastrar região', new_property_location_path %></p>
             </span>
+        <% elsif user_signed_in? %>
+            </span>
+                <p class="links_registro"> Confira a lista de propriedades disponíveis: </p>
+            </span>
         <% else %>
             <span>
-                <p class="links_registro"><%= link_to 'Cadastre-se', new_property_owner_registration_path %> ou <%= link_to 'faça login', new_property_owner_session_path%> para acessar as propriedades.</p>
+                <p class="links_registro"><%= link_to 'Cadastre-se', new_property_owner_registration_path %> ou <%= link_to 'faça login', new_property_owner_session_path%> para registrar suas propriedades.</p>
             </span>
         <% end %>
     </div>

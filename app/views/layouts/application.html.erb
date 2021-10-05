@@ -17,8 +17,12 @@
           <span class="top_bar"><%= link_to 'Meus imóveis', my_properties_properties_path %></span>
           <span class="top_bar"><%= current_property_owner.email%></span>
           <span class="top_bar"><%= link_to 'Logout', destroy_property_owner_session_path, method: :delete %></span>
+        <% elsif user_signed_in? %>
+          <span class="top_bar"><%= current_user.email%></span>
+          <span class="top_bar"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></span>
         <% else %>
-          <span class="top_bar"><%= link_to 'Entrar', new_property_owner_session_path %></span>
+          <span class="top_bar"><%= link_to 'Entrar como proprietário', new_property_owner_session_path %></span>
+          <span class="top_bar"><%= link_to 'Entrar como usuário', new_user_session_path %></span>
         <% end %>
       </div>
     </nav>
