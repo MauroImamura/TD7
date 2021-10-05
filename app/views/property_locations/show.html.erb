@@ -1,7 +1,9 @@
 <h1 style="margin-top: 50px; text-align: center"> Região do imóvel: <%= @property_location.title %> </h1>
-
-<h2 style="margin-top: 50px; text-align: center">Imóveis disponíveis:</h2>
-
+<% if @property_location.properties.empty? %>
+    <h2 style="margin-top: 50px; text-align: center">Nenhum imóvel disponível.</h2>
+<% else %>
+    <h2 style="margin-top: 50px; text-align: center">Imóveis disponíveis:</h2>
+<% end %>
 <%= render "properties/properties", properties: @property_location.properties %>
 
 <%= render "shared/return_home" %>

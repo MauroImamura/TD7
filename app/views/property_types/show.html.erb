@@ -1,6 +1,9 @@
 <h1 style="margin-top: 50px; text-align: center"> Tipo de imóvel: <%= @property_type.title %> </h1>
-
-<h2 style="margin-top: 50px; text-align: center">Imóveis disponíveis:</h2>
+<% if @property_type.properties.empty? %>
+    <h2 style="margin-top: 50px; text-align: center">Nenhum imóvel disponível.</h2>
+<% else %>
+    <h2 style="margin-top: 50px; text-align: center">Imóveis disponíveis:</h2>
+<% end %>
 
 <%= render "properties/properties", properties: @property_type.properties %>
 
