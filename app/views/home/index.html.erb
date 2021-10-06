@@ -1,37 +1,37 @@
-<div class = 'Title_subtitle' style = "width: 600px; margin: auto">
-<h1 style="text-align: center; font-size: 50px; margin-bottom: 10px">Flats</h1>
-<p style="text-align: center; font-size: 25px; margin-top: 0px">Boas vindas ao sistema de locação de propriedades</p>
+<div id="titlebox">
+<h1 id="main_title">Flats</h1>
+<p id="main_description">Boas vindas ao sistema de locação de propriedades</p>
 </div>
 
-<nav style="background-color: #252535">
-    <div style="display: table; margin: auto; padding-top: 15px; padding-bottom: 15px">
+<nav id="topbar_nav">
+    <div id="topbar_div">
         <% if property_owner_signed_in? %>
             <span>
-                <p class="links_registro"><%= link_to 'Cadastrar imóvel', new_property_path %></p>
+                <p class="links_topbar"><%= link_to 'Cadastrar imóvel', new_property_path %></p>
             </span>
             <span>
-                <p class="links_registro"><%= link_to 'Cadastrar tipo', new_property_type_path %></p>
+                <p class="links_topbar"><%= link_to 'Cadastrar tipo', new_property_type_path %></p>
             </span>
             <span>
-                <p class="links_registro"><%= link_to 'Cadastrar região', new_property_location_path %></p>
+                <p class="links_topbar"><%= link_to 'Cadastrar região', new_property_location_path %></p>
             </span>
         <% elsif user_signed_in? %>
             </span>
-                <p class="links_registro"> Confira a lista de propriedades disponíveis: </p>
+                <p class="links_topbar"> Confira a lista de propriedades disponíveis: </p>
             </span>
         <% else %>
             <span>
-                <p class="links_registro"><%= link_to 'Cadastre-se', new_property_owner_registration_path %> ou <%= link_to 'faça login', new_property_owner_session_path%> para registrar suas propriedades.</p>
+                <p class="links_topbar"><%= link_to 'Cadastre-se', new_property_owner_registration_path %> ou <%= link_to 'faça login', new_property_owner_session_path%> para registrar suas propriedades.</p>
             </span>
         <% end %>
     </div>
 </nav>
 
-<div style="width:23%; height:50%; position:fixed; background-color: #252535; overflow-y: scroll">
+<div id="sidebar_div">
     <aside><h2 class="sidebar_titles">Filtrar por tipo:</h2>
         <nav>
             <% @property_types.each do |tipo| %> 
-                <p style="margin-top: 25px; margin-bottom: 25px"><%= link_to tipo.title, property_type_path(tipo.id) %><p>
+                <p class="sidebar_options"><%= link_to tipo.title, property_type_path(tipo.id) %><p>
             <% end %>
         </nav>
     </aside>
@@ -39,13 +39,20 @@
     <aside><h2 class="sidebar_titles">Filtrar por região:</h2>
         <nav>
             <% @property_locations.each do |local| %> 
-                <p style="margin-top: 25px; margin-bottom: 25px"><%= link_to local.title, property_location_path(local.id) %><p>
+                <p class="sidebar_options"><%= link_to local.title, property_location_path(local.id) %><p>
             <% end %>
         </nav>
     </aside>
 </div>
 
-<div style = "margin-left: 25%">
+<div id="advertise_div">
+    <aside id="advertise_aside">
+        <p id="advertise_content"> Já imaginou sua marca aqui? Entre em contato: </p>
+        <p id="advertise_content"> contato@flats.com.br </p>
+    </aside>
+</div>
+
+<div id="properties_list">
     <%= render "properties/properties", properties: @properties %>
 
     <% if @properties.empty? %>

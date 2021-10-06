@@ -10,28 +10,34 @@
   </head>
 
   <body>
-    <nav class="top_bar">
-      <div class="top_bar">
-        <span class="top_bar"><%= link_to 'Início', root_path %></span>
+    <nav id="top_bar_nav">
+      <div id="top_bar_div">
+        <span id="top_bar_element"><%= link_to 'Início', root_path %></span>
         <% if property_owner_signed_in? %>
-          <span class="top_bar"><%= link_to 'Meus imóveis', my_properties_properties_path %></span>
-          <span class="top_bar"><%= current_property_owner.email%></span>
-          <span class="top_bar"><%= link_to 'Logout', destroy_property_owner_session_path, method: :delete %></span>
+          <span id="top_bar_element"><%= link_to 'Meus imóveis', my_properties_properties_path %></span>
+          <span id="top_bar_element"><%= current_property_owner.email%></span>
+          <span id="top_bar_element"><%= link_to 'Logout', destroy_property_owner_session_path, method: :delete %></span>
         <% elsif user_signed_in? %>
-          <span class="top_bar"><%= current_user.email%></span>
-          <span class="top_bar"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></span>
+          <span id="top_bar_element"><%= current_user.email%></span>
+          <span id="top_bar_element"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></span>
         <% else %>
-          <span class="top_bar"><%= link_to 'Entrar como proprietário', new_property_owner_session_path %></span>
-          <span class="top_bar"><%= link_to 'Entrar como usuário', new_user_session_path %></span>
+          <span id="top_bar_element"><%= link_to 'Entrar como proprietário', new_property_owner_session_path %></span>
+          <span id="top_bar_element"><%= link_to 'Entrar como usuário', new_user_session_path %></span>
         <% end %>
       </div>
     </nav>
 
-    <div class="login_alerts">
-      <p class="login_alerts"><%= notice %></p>
-      <p class="login_alerts"><%= alert %></p>
+    <div id="content">
+      <div id="login_alerts">
+        <p class="login_message"><%= notice %></p>
+        <p class="login_message"><%= alert %></p>
+      </div>
+
+      <%= yield %>
     </div>
 
-    <%= yield %>
+    <div id="footer_div">
+      <p id="footer_p"> Copyright: MauroT. Todos os direitos reservados © 2021</p>
+    </div>
   </body>
 </html>

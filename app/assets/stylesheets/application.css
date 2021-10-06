@@ -1,19 +1,10 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
- body {
+/*Global Configs*/
+
+#content {
+    min-height: 100vh
+}
+
+body {
     color: white;
     background-color: black;
 }
@@ -26,39 +17,141 @@ a:visited {
     color: GoldenRod;
 }
 
-p.links_registro {
+#top_bar_nav { 
+    background-color: #252540;
+    height: 20px;
+    padding: 20px;
+}
+
+#top_bar_div {
+    display: table;
+    float: right;
+}
+
+#top_bar_element {
+    font-size: 18px;
+    margin: 20px
+}
+
+#login_alerts {
+    margin: auto;
+    background-color: darkkhaki;
+}
+
+.login_message {
+    font-size: 20px;
+    text-align: center;
+    color: black
+}
+
+#footer_div {
+    background-color: #252535;
+    width: 100%;
+    height: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#footer_p {
+    font-size: 15px;
+}
+
+/*Specific view configs*/
+
+/*home index*/
+#title_box {
+    width: 600px;
+    margin: auto
+}
+
+#main_title {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 10px
+}
+
+#main_description {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 0px
+}
+
+#topbar_nav {
+    background-color: #252535
+}
+
+#topbar_div {
+    display: table;
+    margin: auto;
+    padding-top: 15px;
+    padding-bottom: 15px
+}
+
+.links_topbar {
     display: inline;
     font-size: 20px;
     padding: 20px
+}
+
+#sidebar_div {
+    width:23%;
+    height:50%;
+    position:fixed;
+    background-color: #252535;
+    overflow-y: scroll
+}
+
+.sidebars_options {
+    margin-top: 25px;
+    margin-bottom: 25px
 }
 
 h2.sidebar_titles {
     font-size: 20px
 }
 
-nav.top_bar { 
-    background-color: #252535;
-    height: 20px;
-    padding: 20px;
+#properties_list {
+    margin-left: 25%;
+    margin-right: 250px
 }
 
-div.top_bar {
-    display: table;
+#advertise_div {
     float: right;
+    display: flex;
+    background-color: #0f0f0f;
+    border-style: solid;
+    border-color: white;
+    width: 230px;
+    height: 1000px;
+    margin-top: 25px
 }
 
-span.top_bar {
-    font-size: 18px;
-    margin: 20px
+#advertise_aside {
 }
 
-div.login_alerts {
-    margin: auto;
-    background-color: darkkhaki;
-}
-
-p.login_alerts {
-    font-size: 20px;
+#advertise_content {
+    color: rgb(255, 255, 255);
     text-align: center;
-    color: black
+    font-size: 20px
+}
+
+/*properties partial*/
+
+#property_partial {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 5%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray
+}
+
+#property_title {
+    margin-top: 50px;
+    text-align: center
+}
+
+#property_info p {
+    margin-top: 20px;
+    text-align: center
 }
