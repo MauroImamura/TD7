@@ -33,6 +33,12 @@ a:visited {
     margin: 20px
 }
 
+.view_title {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 40px;
+}
+
 #login_alerts {
     margin: auto;
     background-color: darkkhaki;
@@ -96,7 +102,7 @@ a:visited {
 #sidebar_div {
     width:23%;
     height:50%;
-    position:fixed;
+    float: left;
     background-color: #252535;
     overflow-y: scroll
 }
@@ -155,3 +161,4 @@ h2.sidebar_titles {
     margin-top: 20px;
     text-align: center
 }
+

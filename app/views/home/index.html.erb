@@ -28,12 +28,13 @@
 </nav>
 
 <div id="sidebar_div">
-    <aside><h2 class="sidebar_titles">Filtrar por tipo:</h2>
-        <nav>
-            <% @property_types.each do |tipo| %> 
-                <p class="sidebar_options"><%= link_to tipo.title, property_type_path(tipo.id) %><p>
-            <% end %>
-        </nav>
+    <aside>
+        <h2 class="sidebar_titles">Filtrar por tipo:</h2>
+            <nav>
+                <% @property_types.each do |tipo| %> 
+                    <p class="sidebar_options"><%= link_to tipo.title, property_type_path(tipo.id) %><p>
+                <% end %>
+            </nav>
     </aside>
 
     <aside><h2 class="sidebar_titles">Filtrar por região:</h2>
