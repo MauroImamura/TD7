@@ -3,6 +3,7 @@ class PropertiesController < ApplicationController
 
     def show
         @property = Property.find(params[:id])
+        @property_book = PropertyBook.new
     end
 
     def new

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :properties, only: [:show, :new, :create] do
     get 'my_properties', on: :collection
+    resources :property_books, only: [:create, :show], shallow: true
   end
   resources :property_types, only: [:new, :create, :show]
   resources :property_locations, only: [:new, :create, :show]

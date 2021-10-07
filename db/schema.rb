@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_05_100554) do
+ActiveRecord::Schema.define(version: 2021_10_06_183848) do
 
   create_table "properties", force: :cascade do |t|
     t.string "title"
@@ -28,6 +28,19 @@ ActiveRecord::Schema.define(version: 2021_10_05_100554) do
     t.index ["property_location_id"], name: "index_properties_on_property_location_id"
     t.index ["property_owner_id"], name: "index_properties_on_property_owner_id"
     t.index ["property_type_id"], name: "index_properties_on_property_type_id"
+  end
+
+  create_table "property_books", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "guests"
+    t.decimal "total_value"
+    t.integer "property_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["property_id"], name: "index_property_books_on_property_id"
+    t.index ["user_id"], name: "index_property_books_on_user_id"
   end
 
   create_table "property_locations", force: :cascade do |t|
@@ -69,4 +82,6 @@ ActiveRecord::Schema.define(version: 2021_10_05_100554) do
   add_foreign_key "properties", "property_locations"
   add_foreign_key "properties", "property_owners"
   add_foreign_key "properties", "property_types"
+  add_foreign_key "property_books", "properties"
+  add_foreign_key "property_books", "users"
 end
